@@ -2,17 +2,17 @@ import { useState } from 'react'
 import Header from '../../components/Header.jsx'
 import Box from '../../components/CourseBox.jsx'
 import Loading from '../../components/Loading.jsx'
-import { hiraganas, romajiLetters } from '../../components/hiragana.jsx'
+import { katakanas, romajiLetters } from '../../components/katakana.jsx'
 import { rand, getOptions, shuffle } from '../randomizer.jsx'
 
-const index = rand(hiraganas.length);
-const chosenHiragana = hiraganas[index];
+const index = rand(katakanas.length);
+const chosenHiragana = katakanas[index];
 const romajis = romajiLetters[index];
 
 const fetchOption = getOptions(romajiLetters, romajis);
 const options = shuffle([romajis, ...fetchOption]);
 
-const Hiramaji = () => {
+const Katamaji = () => {
     const [selected, setSelected] = useState(null);
     const [locked, setLocked] = useState(false);
     const checkAnswer = (choice) => {
@@ -59,4 +59,4 @@ const Hiramaji = () => {
         </div>
     )
 }
-export default Hiramaji
+export default Katamaji

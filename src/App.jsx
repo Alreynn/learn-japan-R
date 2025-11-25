@@ -1,7 +1,7 @@
- import Header from './components/Header.jsx'
- import Box from './components/CourseBox.jsx'
+import Header from './components/Header.jsx'
+import Box from './components/CourseBox.jsx'
 import './App.css'
- import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const App = () => {
     return (
@@ -19,10 +19,6 @@ const App = () => {
                     </div>
                 </Box>
             </main>
-            
-            <footer className="fixed w-full bottom-0 p-1 px-3 bg-[#bcbae0]/80">
-                <p className="font-medium text-[14px] leading-4">This website may still have algorithm issues, like duplicated answer. It needs a little bit effort to fix the problem.</p>
-            </footer>
         </div>
     )
 }

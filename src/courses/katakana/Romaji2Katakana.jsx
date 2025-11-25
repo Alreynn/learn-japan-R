@@ -2,17 +2,17 @@ import { useState } from 'react'
 import Header from '../../components/Header.jsx'
 import Box from '../../components/CourseBox.jsx'
 import Loading from '../../components/Loading.jsx'
-import { hiraganas, romajiLetters } from '../../components/hiragana.jsx'
+import { katakanas, romajiLetters } from '../../components/katakana.jsx'
 import { rand, getOptions, shuffle } from '../randomizer.jsx'
 
-const index = rand(hiraganas.length);
-const chosenHiragana = hiraganas[index];
-const romajis = romajiLetters[index];
+const index = rand(romajiLetters.length);
+const chosenRomaji = romajiLetters[index];
+const katakana = katakanas[index];
 
-const fetchOption = getOptions(romajiLetters, romajis);
-const options = shuffle([romajis, ...fetchOption]);
+const fetchOption = getOptions(katakanas, katakana);
+const options = shuffle([katakana, ...fetchOption]);
 
-const Hiramaji = () => {
+const Romakana = () => {
     const [selected, setSelected] = useState(null);
     const [locked, setLocked] = useState(false);
     const checkAnswer = (choice) => {
@@ -32,11 +32,11 @@ const Hiramaji = () => {
             
             <main className="flex flex-col justify-center items-center h-[100dvh]">
                 <Box>
-                    <h2 className="text-3xl font-bold text-center">{chosenHiragana}</h2>
+                    <h2 className="text-3xl font-bold text-center">{chosenRomaji}</h2>
                     <p className="mb-2">The letter above resembles...</p>
                     <div className="flex flex-col gap-y-3">
                         {options.map((item) => {
-                            const isCorrect = item === romajis;
+                            const isCorrect = item === katakana;
                             const isSelected = item === selected;
                             let color = "bg-transparent";
                         
@@ -59,4 +59,4 @@ const Hiramaji = () => {
         </div>
     )
 }
-export default Hiramaji
+export default Romakana
