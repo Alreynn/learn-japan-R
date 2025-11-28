@@ -11,9 +11,9 @@ const Hiragana = () => {
                 <Box>
                     <p className="mb-2">Choose courses to choose from...</p>
                     <div className="flex flex-col gap-y-3 text-center">
-                        <Link to={'/hiraganaromaji'} className="w-full rounded-lg border-[1px] border-black p-2 px-3 transition-all active:bg-neutral-300">Hiragana to Romaji</Link>
-                        <Link to={'/romajihiragana'} className="w-full rounded-lg border-[1px] border-black p-2 px-3 transition-all active:bg-neutral-300">Romaji to Hiragana</Link>
-                        <Link to={'/hiraganaletters'} className="w-full rounded-lg border-[1px] border-black p-2 px-3 transition-all active:bg-neutral-300">List of Letters</Link>
+                        <Link to={'/hiragana/hiraganaromaji'} className="w-full rounded-lg border-[1px] border-black p-2 px-3 transition-all active:bg-neutral-300">Hiragana to Romaji</Link>
+                        <Link to={'/hiragana/romajihiragana'} className="w-full rounded-lg border-[1px] border-black p-2 px-3 transition-all active:bg-neutral-300">Romaji to Hiragana</Link>
+                        <Link to={'/hiragana/letters'} className="w-full rounded-lg border-[1px] border-black p-2 px-3 transition-all active:bg-neutral-300">List of Letters</Link>
                     </div>
                 </Box>
             </main>

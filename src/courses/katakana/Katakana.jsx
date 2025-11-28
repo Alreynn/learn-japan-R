@@ -11,9 +11,9 @@ const Katakana = () => {
                 <Box>
                     <p className="mb-2">Choose courses to choose from...</p>
                     <div className="flex flex-col gap-y-3 text-center">
-                        <Link to={'/katakanaromaji'} className="w-full rounded-lg border-[1px] border-black p-2 px-3 transition-all active:bg-neutral-300">Katakana to Romaji</Link>
-                        <Link to={'/romajikatakana'} className="w-full rounded-lg border-[1px] border-black p-2 px-3 transition-all active:bg-neutral-300">Romaji to Katakana</Link>
-                        <Link to={'/katakanaletters'} className="w-full rounded-lg border-[1px] border-black p-2 px-3 transition-all active:bg-neutral-300">List of Letters</Link>
+                        <Link to={'/katakana/katakanaromaji'} className="w-full rounded-lg border-[1px] border-black p-2 px-3 transition-all active:bg-neutral-300">Katakana to Romaji</Link>
+                        <Link to={'/katakana/romajikatakana'} className="w-full rounded-lg border-[1px] border-black p-2 px-3 transition-all active:bg-neutral-300">Romaji to Katakana</Link>
+                        <Link to={'/katakana/letters'} className="w-full rounded-lg border-[1px] border-black p-2 px-3 transition-all active:bg-neutral-300">List of Letters</Link>
                     </div>
                 </Box>
             </main>

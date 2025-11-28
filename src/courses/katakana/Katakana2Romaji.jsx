@@ -1,42 +1,57 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Header from '../../components/Header.jsx'
 import Box from '../../components/CourseBox.jsx'
 import Loading from '../../components/Loading.jsx'
 import { katakanas, romajiLetters } from '../../components/katakana.jsx'
 import { rand, getOptions, shuffle } from '../randomizer.jsx'
 
-const index = rand(katakanas.length);
-const chosenHiragana = katakanas[index];
-const romajis = romajiLetters[index];
-
-const fetchOption = getOptions(romajiLetters, romajis);
-const options = shuffle([romajis, ...fetchOption]);
-
 const Katamaji = () => {
+    const [questions, setQuestions] = useState(null);
     const [selected, setSelected] = useState(null);
     const [locked, setLocked] = useState(false);
+    
+    const newQuestion = () => {
+        const index = rand(katakanas.length);
+        const chosenKatakana = katakanas[index];
+        const romajis = romajiLetters[index];
+        
+        const fetchOption = getOptions(romajiLetters, romajis);
+        const options = shuffle([romajis, ...fetchOption]);
+        
+        setQuestions({ chosenKatakana, romajis, options });
+        setSelected(null);
+        setLocked(false);
+    }
+    
+    useEffect(() => {
+        setTimeout(() => {
+            newQuestion();
+        }, 200);
+    }, [])
+    
     const checkAnswer = (choice) => {
         if (locked) return;
         setSelected(choice);
         setLocked(true);
         
         setTimeout(() => {
-            window.location.reload();
+            newQuestion();
         }, 800);
     };
+    
+    if (!questions) return <Loading />;
     
     return (
         <div className="bg-[#cdcbf0] h-[100svh] overflow-hidden">
             <Header />
-            <Loading />
             
             <main className="flex flex-col justify-center items-center h-[100dvh]">
                 <Box>
-                    <h2 className="text-3xl font-bold text-center">{chosenHiragana}</h2>
+                    <h2 className="text-3xl font-bold text-center">{questions.chosenKatakana}</h2>
                     <p className="mb-2">The letter above resembles...</p>
                     <div className="flex flex-col gap-y-3">
-                        {options.map((item) => {
-                            const isCorrect = item === romajis;
+                        {questions.options.map((item) => {
+                            const isCorrect = item === questions.romajis;
                             const isSelected = item === selected;
                             let color = "bg-transparent";
                         

@@ -6,7 +6,7 @@ const Loading = () => {
         setTimeout(() => {
             setLoading(false);
         }, 200)
-    })
+    }, [])
     
     return (
         <>

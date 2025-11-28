@@ -2,23 +2,24 @@ import { useState, useEffect } from 'react'
 import Header from '../../components/Header.jsx'
 import Box from '../../components/CourseBox.jsx'
 import Loading from '../../components/Loading.jsx'
-import { hiraganas, romajiLetters } from '../../components/hiragana.jsx'
+import { kanjis, kanjiRomaji } from '../../components/kanji.jsx'
 import { rand, getOptions, shuffle } from '../randomizer.jsx'
 
-const Hiramaji = () => {
+
+const N5 = () => {
     const [questions, setQuestions] = useState(null);
     const [selected, setSelected] = useState(null);
     const [locked, setLocked] = useState(false);
     
     const newQuestion = () => {
-        const index = rand(hiraganas.length);
-        const chosenHiragana = hiraganas[index];
-        const romajis = romajiLetters[index];
+        const index = rand(kanjis.length);
+        const chosenKanji = kanjis[index];
+        const romajis = kanjiRomaji[index];
         
-        const fetchOption = getOptions(romajiLetters, romajis);
+        const fetchOption = getOptions(kanjiRomaji, romajis);
         const options = shuffle([romajis, ...fetchOption]);
-        
-        setQuestions({ chosenHiragana, romajis, options });
+    
+        setQuestions({ chosenKanji, romajis, options });
         setSelected(null);
         setLocked(false);
     }
@@ -47,8 +48,8 @@ const Hiramaji = () => {
             
             <main className="flex flex-col justify-center items-center h-[100dvh]">
                 <Box>
-                    <h2 className="text-3xl font-bold text-center">{questions.chosenHiragana}</h2>
-                    <p className="mb-2">The letter above resembles...</p>
+                    <h2 className="text-3xl font-bold text-center">{questions.chosenKanji}</h2>
+                    <p className="mb-2">The kanji above resembles...</p>
                     <div className="flex flex-col gap-y-3">
                         {questions.options.map((item) => {
                             const isCorrect = item === questions.romajis;
@@ -74,4 +75,4 @@ const Hiramaji = () => {
         </div>
     )
 }
-export default Hiramaji
+export default N5

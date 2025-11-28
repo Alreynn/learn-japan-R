@@ -13,7 +13,7 @@ const ErrorPage = () => {
                 <p>Developer Error</p>
                 <p>Something went wrong!</p>
                 <div className="bg-[#e9e8ef] rounded-md w-2/3 overflow-scroll mt-2 p-2 px-4">
-                    {error?.statusText || error?.message}
+                    {error || error?.statusText || error?.message}
                 </div>
             </main>
         </div>
