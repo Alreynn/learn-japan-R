@@ -48,7 +48,7 @@ const N5 = () => {
             
             <main className="flex flex-col justify-center items-center h-[100dvh]">
                 <Box>
-                    <h2 className="text-3xl font-bold text-center">{questions.chosenKanji}</h2>
+                    <h2 className="text-6xl font-medium text-center">{questions.chosenKanji}</h2>
                     <p className="mb-2">The kanji above resembles...</p>
                     <div className="flex flex-col gap-y-3">
                         {questions.options.map((item) => {

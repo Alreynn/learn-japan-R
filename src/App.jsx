@@ -1,12 +1,11 @@
 import { HeaderHome } from './components/Header.jsx'
 import Box from './components/CourseBox.jsx'
 import './App.css'
-import { Link, Outlet } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const App = () => {
     return (
         <div className="bg-[#cdcbf0] min-h-[100svh] overflow-hidden">
-            <Outlet />
             <HeaderHome />
             
             <main className="flex flex-col justify-center items-center h-[100dvh]">
